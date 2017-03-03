@@ -2,5 +2,5 @@ package inheritance;
 
 public interface IColorAware {
 
-    void paint();
+    void paint(); // sample comment
 }
