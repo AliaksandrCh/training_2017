@@ -11,8 +11,10 @@
 	<packaging>jar</packaging>
 
 	<dependencies>
-	
-
+	<dependency>
+			<groupId>com.epam.training.library2017</groupId>
+			<artifactId>dao-impl-db</artifactId>
+		</dependency>
 	</dependencies>
 
 </project>
