@@ -7,9 +7,4 @@ import com.epam.training.library2017.services.IAuthorService;
 @Service
 public class AuthorServiceImpl implements IAuthorService {
 
-    public static final IAuthorService INSTANCE = new AuthorServiceImpl();
-
-    private AuthorServiceImpl() {
-    }
-
 }

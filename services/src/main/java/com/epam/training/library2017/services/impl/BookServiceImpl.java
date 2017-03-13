@@ -1,11 +1,11 @@
 package com.epam.training.library2017.services.impl;
 
+import javax.inject.Inject;
+
 import org.springframework.stereotype.Service;
 
 import com.epam.training.library2017.dao.impl.db.IAuthorDao;
 import com.epam.training.library2017.dao.impl.db.IBookDao;
-import com.epam.training.library2017.dao.impl.db.impl.AuthorDaoImpl;
-import com.epam.training.library2017.dao.impl.db.impl.BookDaoImpl;
 import com.epam.training.library2017.datamodel.Book;
 import com.epam.training.library2017.services.IAuthorService;
 import com.epam.training.library2017.services.IBookService;
@@ -13,18 +13,14 @@ import com.epam.training.library2017.services.IBookService;
 @Service
 public class BookServiceImpl implements IBookService {
 
-    private final IBookDao bookDao;
+    @Inject
+    private IBookDao bookDao;
 
+    @Inject
     private IAuthorDao authorDao;
 
+    @Inject
     private IAuthorService authorService;
-
-    public BookServiceImpl() {
-        super();
-        bookDao = new BookDaoImpl();
-        authorDao = new AuthorDaoImpl();
-        authorService = AuthorServiceImpl.INSTANCE;
-    }
 
     @Override
     public Book get(Integer id) {
