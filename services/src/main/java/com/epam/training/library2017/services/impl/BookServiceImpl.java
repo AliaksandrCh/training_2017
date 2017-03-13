@@ -2,6 +2,7 @@ package com.epam.training.library2017.services.impl;
 
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.epam.training.library2017.dao.impl.db.IAuthorDao;
@@ -21,6 +22,12 @@ public class BookServiceImpl implements IBookService {
 
     @Inject
     private IAuthorService authorService;
+
+    @Value("${key1}")
+    private String key1;
+
+    @Value("${key2}")
+    private Integer key2;
 
     @Override
     public Book get(Integer id) {
