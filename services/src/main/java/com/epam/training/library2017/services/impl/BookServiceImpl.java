@@ -1,5 +1,7 @@
 package com.epam.training.library2017.services.impl;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -35,6 +37,11 @@ public class BookServiceImpl implements IBookService {
     }
 
     @Override
+    public List<Book> getAll() {
+        return bookDao.getAll();
+    }
+
+    @Override
     public void save(Book book) {
         if (book.getId() == null) {
             System.out.println("Insert new Book");
@@ -42,5 +49,20 @@ public class BookServiceImpl implements IBookService {
         } else {
             bookDao.update(book);
         }
+    }
+
+    @Override
+    public void delete(Integer id) {
+        bookDao.delete(id);
+
+    }
+
+    @Override
+    public void saveMultiple(Book... bookAray) {
+
+        for (Book book : bookAray) {
+            save(book);
+        }
+
     }
 }
