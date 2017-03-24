@@ -10,6 +10,7 @@ public interface IBookService {
 
     Book get(Integer id);
 
+    @Transactional
     void save(Book book);
 
     @Transactional
@@ -17,5 +18,6 @@ public interface IBookService {
 
     List<Book> getAll();
 
+    @Transactional
     void delete(Integer id);
 }

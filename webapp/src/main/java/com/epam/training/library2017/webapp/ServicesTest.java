@@ -1,5 +1,8 @@
 package com.epam.training.library2017.webapp;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.epam.training.library2017.datamodel.Book;
@@ -17,6 +20,7 @@ public class ServicesTest {
 
         Book book = new Book();
         book.setTitle("new book from java");
+        book.setCreated(new Timestamp(new Date().getTime()));
         service.save(book);
 
         System.out.println("Saved book:" + book);
