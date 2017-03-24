@@ -51,8 +51,8 @@ public class BookDaoImpl implements IBookDao {
             }
         }, keyHolder);
 
-        entity.setId(keyHolder.getKey().intValue());
-
+        Number key = keyHolder.getKey();
+        entity.setId(key.intValue());
         return entity;
 
     }
