@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.epam.training.library2017.dao.impl.db.IAuthorDao;
 import com.epam.training.library2017.dao.impl.db.IBookDao;
 import com.epam.training.library2017.datamodel.Book;
+import com.epam.training.library2017.datamodel.BookGenre;
 import com.epam.training.library2017.services.IAuthorService;
 import com.epam.training.library2017.services.IBookService;
 
@@ -45,6 +46,9 @@ public class BookServiceImpl implements IBookService {
     public void save(Book book) {
         if (book.getId() == null) {
             System.out.println("Insert new Book");
+            if (book.getGenre() == null) {
+                book.setGenre(BookGenre.fantasy);
+            }
             bookDao.insert(book);
         } else {
             bookDao.update(book);

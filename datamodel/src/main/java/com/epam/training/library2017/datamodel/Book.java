@@ -12,6 +12,15 @@ public class Book {
     private String title;
     private Integer authorId;
     private Timestamp created;
+    private BookGenre genre;
+
+    public BookGenre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(BookGenre genre) {
+        this.genre = genre;
+    }
 
     public Integer getId() {
         return id;

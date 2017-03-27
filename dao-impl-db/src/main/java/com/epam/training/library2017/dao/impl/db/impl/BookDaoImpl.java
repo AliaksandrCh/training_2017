@@ -37,7 +37,7 @@ public class BookDaoImpl implements IBookDao {
     @Override
     public Book insert(Book entity) {
 
-        final String INSERT_SQL = "insert into book (title, created) values(?,?)";
+        final String INSERT_SQL = "insert into book (title, created, genre) values(?,?, ?)";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
@@ -47,6 +47,7 @@ public class BookDaoImpl implements IBookDao {
                 PreparedStatement ps = connection.prepareStatement(INSERT_SQL, new String[] { "id" });
                 ps.setString(1, entity.getTitle());
                 ps.setTimestamp(2, entity.getCreated());
+                ps.setString(3, entity.getGenre().name());
                 return ps;
             }
         }, keyHolder);
