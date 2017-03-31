@@ -35,4 +35,22 @@ public class BookServiceTest extends AbstractTest {
 
         service.delete(savedBookId);
     }
+
+    @Test
+    public void createMultipleTest() {
+
+        Book book1 = new Book();
+        book1.setTitle("new book1 from java");
+        book1.setCreated(new Timestamp(new Date().getTime()));
+
+        Book book2 = new Book();
+        book2.setTitle("new book2 from java");
+        book2.setCreated(new Timestamp(new Date().getTime()));
+
+        Book book3 = new Book();
+        book3.setTitle("new book3 from java");
+        book3.setCreated(new Timestamp(new Date().getTime()));
+
+        service.saveMultiple(book1, book2, book3);
+    }
 }

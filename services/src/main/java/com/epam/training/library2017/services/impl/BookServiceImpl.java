@@ -1,10 +1,11 @@
 package com.epam.training.library2017.services.impl;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,8 @@ import com.epam.training.library2017.services.IBookService;
 
 @Service
 public class BookServiceImpl implements IBookService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(BookServiceImpl.class);
 
     @Inject
     private IBookDao bookDao;
@@ -52,7 +55,7 @@ public class BookServiceImpl implements IBookService {
             }
 
             bookDao.insert(book);
-            System.out.println(new Date() + "|BookServiceImpl:54|Insert new Book:" + book);
+            LOGGER.info("Insert new Book:" + book);
         } else {
             bookDao.update(book);
         }
@@ -61,13 +64,14 @@ public class BookServiceImpl implements IBookService {
     @Override
     public void delete(Integer id) {
         bookDao.delete(id);
-        System.out.println(new Date() + "|BookServiceImpl:63|delete  BookId:" + id);
+        LOGGER.info("delete  BookId:" + id);
     }
 
     @Override
     public void saveMultiple(Book... bookAray) {
 
         for (Book book : bookAray) {
+            LOGGER.debug("Insert new Book from array:" + book);
             save(book);
         }
 
