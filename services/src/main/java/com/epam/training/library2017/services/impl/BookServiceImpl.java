@@ -55,7 +55,8 @@ public class BookServiceImpl implements IBookService {
             }
 
             bookDao.insert(book);
-            LOGGER.info("Insert new Book:" + book);
+
+            LOGGER.info("Insert new Book.id={}. genre={}. title={}", book.getId(), book.getGenre(), book.getTitle());
         } else {
             bookDao.update(book);
         }

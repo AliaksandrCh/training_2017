@@ -22,8 +22,8 @@
 		    <AppenderRef ref="Console" />
 		</Root>
 		
-		<Logger level="error" name="com.epam.training.library2017.services.impl"
-			additivity="false">
+		<Logger level="info" name="com.epam.training.library2017.services.impl"
+			additivity="true">
 			<AppenderRef ref="RollingFile" />
 		</Logger>
 		
