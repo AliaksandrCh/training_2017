@@ -31,5 +31,8 @@ public class BookServiceTest extends AbstractTest {
 
         Assert.isTrue(bookFromDb.getCreated().equals(book.getCreated()), "created must be eq...");
 
+        // DELETE for sample
+
+        service.delete(savedBookId);
     }
 }

@@ -1,5 +1,6 @@
 package com.epam.training.library2017.services.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -45,11 +46,13 @@ public class BookServiceImpl implements IBookService {
     @Override
     public void save(Book book) {
         if (book.getId() == null) {
-            System.out.println("Insert new Book");
+
             if (book.getGenre() == null) {
                 book.setGenre(BookGenre.fantasy);
             }
+
             bookDao.insert(book);
+            System.out.println(new Date() + "|BookServiceImpl:54|Insert new Book:" + book);
         } else {
             bookDao.update(book);
         }
@@ -58,7 +61,7 @@ public class BookServiceImpl implements IBookService {
     @Override
     public void delete(Integer id) {
         bookDao.delete(id);
-
+        System.out.println(new Date() + "|BookServiceImpl:63|delete  BookId:" + id);
     }
 
     @Override
