@@ -20,6 +20,7 @@ import org.springframework.stereotype.Repository;
 
 import com.epam.training.library2017.dao.impl.db.IBookDao;
 import com.epam.training.library2017.dao.impl.filter.BookFilter;
+import com.epam.training.library2017.dao.impl.filter.SortData;
 import com.epam.training.library2017.datamodel.Book;
 
 @Repository
@@ -100,6 +101,21 @@ public class BookDaoImpl implements IBookDao {
         }
 
         sqlWhere.append(concatAnds(sqlWhereFragmentsAndList));
+
+        SortData sort = bookFilter.getSort();
+        if (sort != null) {
+            String column = sort.getColumn();
+            String direction = sort.getOrder();
+            // TODO add 'order by ' fragment to final SQL
+        }
+
+        if (bookFilter.getLimit() != null) {
+            // TODO add "limit" to SQL
+        }
+
+        if (bookFilter.getOffset() != null) {
+            // TODO add "offset" to SQL
+        }
 
         String fullSql = String.format("select * from book %s ", sqlWhere);
 
