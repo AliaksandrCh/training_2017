@@ -27,8 +27,8 @@
 			<AppenderRef ref="RollingFile" />
 		</Logger>
 		
-		<Logger level="fatal" name="com.epam.training.library2017.dao.impl" 
-			additivity="false">
+		<Logger level="debug" name="com.epam.training.library2017.dao.impl" 
+			additivity="true">
 			<AppenderRef ref="RollingFile" />
 		</Logger>
 		

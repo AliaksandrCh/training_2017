@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.epam.training.library2017.dao.impl.db.IAuthorDao;
 import com.epam.training.library2017.dao.impl.db.IBookDao;
+import com.epam.training.library2017.dao.impl.filter.BookFilter;
 import com.epam.training.library2017.datamodel.Book;
 import com.epam.training.library2017.datamodel.BookGenre;
 import com.epam.training.library2017.services.IAuthorService;
@@ -76,5 +77,10 @@ public class BookServiceImpl implements IBookService {
             save(book);
         }
 
+    }
+
+    @Override
+    public List<Book> search(BookFilter bookFilter) {
+        return bookDao.search(bookFilter);
     }
 }

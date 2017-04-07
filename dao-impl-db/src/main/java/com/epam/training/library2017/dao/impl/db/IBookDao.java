@@ -2,6 +2,7 @@ package com.epam.training.library2017.dao.impl.db;
 
 import java.util.List;
 
+import com.epam.training.library2017.dao.impl.filter.BookFilter;
 import com.epam.training.library2017.datamodel.Book;
 
 public interface IBookDao {
@@ -15,4 +16,6 @@ public interface IBookDao {
     List<Book> getAll();
 
     void delete(Integer id);
+
+    List<Book> search(BookFilter bookFilter);
 }

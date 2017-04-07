@@ -3,10 +3,13 @@ package com.epam.training.library2017.dao.impl.db.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -16,10 +19,13 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.epam.training.library2017.dao.impl.db.IBookDao;
+import com.epam.training.library2017.dao.impl.filter.BookFilter;
 import com.epam.training.library2017.datamodel.Book;
 
 @Repository
 public class BookDaoImpl implements IBookDao {
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(BookDaoImpl.class);
 
     @Inject
     private JdbcTemplate jdbcTemplate;
@@ -74,4 +80,43 @@ public class BookDaoImpl implements IBookDao {
         // TODO
     }
 
+    @Override
+    public List<Book> search(BookFilter bookFilter) {
+        StringBuilder sqlWhere = new StringBuilder("");
+        List<Object> paramsList = new ArrayList<Object>();
+        List<String> sqlWhereFragmentsAndList = new ArrayList<String>();
+
+        if (bookFilter.getGenre() != null) {
+            sqlWhereFragmentsAndList.add("genre=?");
+            paramsList.add(bookFilter.getGenre().name());
+        }
+        if (bookFilter.getTitle() != null && bookFilter.getTitle().length() > 0) {
+            sqlWhereFragmentsAndList.add("title=?");
+            paramsList.add(bookFilter.getTitle());
+        }
+
+        if (!paramsList.isEmpty()) {
+            sqlWhere.insert(0, "where ");
+        }
+
+        sqlWhere.append(concatAnds(sqlWhereFragmentsAndList));
+
+        String fullSql = String.format("select * from book %s ", sqlWhere);
+
+        LOGGER.debug("execute sql:{}", fullSql);
+        List<Book> rs = jdbcTemplate.query(fullSql, paramsList.toArray(), new BeanPropertyRowMapper<Book>(Book.class));
+        return rs;
+    }
+
+    private String concatAnds(List<String> sqlParts) {
+        StringBuilder stringBuilder = new StringBuilder("");
+        for (int i = 0; i < sqlParts.size(); i++) {
+            String string = sqlParts.get(i);
+            if (i != 0) {
+                stringBuilder.append("AND ");
+            }
+            stringBuilder.append(string + " ");
+        }
+        return stringBuilder.toString();
+    }
 }

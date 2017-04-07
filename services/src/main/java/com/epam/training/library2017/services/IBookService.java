@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import com.epam.training.library2017.dao.impl.filter.BookFilter;
 import com.epam.training.library2017.datamodel.Book;
 
 public interface IBookService {
@@ -20,4 +21,6 @@ public interface IBookService {
 
     @Transactional
     void delete(Integer id);
+
+    List<Book> search(BookFilter bookFilter);
 }
