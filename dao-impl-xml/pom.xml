@@ -14,5 +14,9 @@
 			<groupId>com.epam.training.library2017</groupId>
 			<artifactId>dao-api</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+		</dependency>
 	</dependencies>
 </project>
