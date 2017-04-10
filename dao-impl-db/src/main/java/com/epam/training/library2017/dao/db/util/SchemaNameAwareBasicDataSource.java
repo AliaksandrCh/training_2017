@@ -1,4 +1,4 @@
-package com.epam.training.library2017.dao.impl.db.util;
+package com.epam.training.library2017.dao.db.util;
 
 import java.sql.Connection;
 import java.sql.SQLException;

@@ -1,4 +1,4 @@
-package com.epam.training.library2017.dao.impl.db.impl;
+package com.epam.training.library2017.dao.db.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,9 +18,9 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import com.epam.training.library2017.dao.impl.db.IBookDao;
-import com.epam.training.library2017.dao.impl.filter.BookFilter;
-import com.epam.training.library2017.dao.impl.filter.SortData;
+import com.epam.training.library2017.dao.api.IBookDao;
+import com.epam.training.library2017.dao.api.filter.BookFilter;
+import com.epam.training.library2017.dao.api.filter.SortData;
 import com.epam.training.library2017.datamodel.Book;
 
 @Repository

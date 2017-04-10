@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import com.epam.training.library2017.dao.impl.filter.BookFilter;
+import com.epam.training.library2017.dao.api.filter.BookFilter;
 import com.epam.training.library2017.datamodel.Book;
 
 public interface IBookService {

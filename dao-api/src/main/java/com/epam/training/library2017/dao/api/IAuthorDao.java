@@ -1,4 +1,4 @@
-package com.epam.training.library2017.dao.impl.db;
+package com.epam.training.library2017.dao.api;
 
 import com.epam.training.library2017.datamodel.Author;
 

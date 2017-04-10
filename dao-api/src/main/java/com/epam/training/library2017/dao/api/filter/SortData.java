@@ -1,4 +1,4 @@
-package com.epam.training.library2017.dao.impl.filter;
+package com.epam.training.library2017.dao.api.filter;
 
 public class SortData {
 

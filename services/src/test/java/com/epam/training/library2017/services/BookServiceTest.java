@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import org.junit.Test;
 import org.springframework.util.Assert;
 
-import com.epam.training.library2017.dao.impl.filter.BookFilter;
+import com.epam.training.library2017.dao.api.filter.BookFilter;
 import com.epam.training.library2017.datamodel.Book;
 import com.epam.training.library2017.datamodel.BookGenre;
 

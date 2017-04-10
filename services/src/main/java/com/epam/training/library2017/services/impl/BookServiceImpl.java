@@ -9,9 +9,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.epam.training.library2017.dao.impl.db.IAuthorDao;
-import com.epam.training.library2017.dao.impl.db.IBookDao;
-import com.epam.training.library2017.dao.impl.filter.BookFilter;
+import com.epam.training.library2017.dao.api.IAuthorDao;
+import com.epam.training.library2017.dao.api.IBookDao;
+import com.epam.training.library2017.dao.api.filter.BookFilter;
 import com.epam.training.library2017.datamodel.Book;
 import com.epam.training.library2017.datamodel.BookGenre;
 import com.epam.training.library2017.services.IAuthorService;

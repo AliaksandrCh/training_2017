@@ -1,8 +1,8 @@
-package com.epam.training.library2017.dao.impl.db;
+package com.epam.training.library2017.dao.api;
 
 import java.util.List;
 
-import com.epam.training.library2017.dao.impl.filter.BookFilter;
+import com.epam.training.library2017.dao.api.filter.BookFilter;
 import com.epam.training.library2017.datamodel.Book;
 
 public interface IBookDao {

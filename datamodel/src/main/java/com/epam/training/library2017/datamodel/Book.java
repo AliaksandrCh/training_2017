@@ -1,18 +1,32 @@
 package com.epam.training.library2017.datamodel;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
  * @author dz
  *
  */
-public class Book {
+public class Book implements Serializable {
+
+    private static final long serialVersionUID = 1;
 
     private Integer id;
     private String title;
     private Integer authorId;
     private Timestamp created;
+    private Timestamp updated;
     private BookGenre genre;
+
+    private transient NotSerializable notSerObj;
+
+    public NotSerializable getNotSerObj() {
+        return notSerObj;
+    }
+
+    public void setNotSerObj(NotSerializable notSerObj) {
+        this.notSerObj = notSerObj;
+    }
 
     public BookGenre getGenre() {
         return genre;
@@ -56,7 +70,8 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book [id=" + id + ", title=" + title + ", authorId=" + authorId + ", created=" + created + "]";
+        return "Book [id=" + id + ", title=" + title + ", authorId=" + authorId + ", created=" + created + ", updated="
+                + updated + ", genre=" + genre + "]";
     }
 
 }
